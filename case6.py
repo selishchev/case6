@@ -13,14 +13,15 @@ def draw_hexagon(x, y, side_len, color):
     turtle.goto(x, y)
     turtle.fillcolor(color)
     turtle.down()
-    turtle.beginfill()
+    turtle.begin_fill()
     turtle.right(30)
     while count < 6:
         turtle.forward(side_len)
         turtle.left(60)
         count += 1
-    turtle.endfill()
+    turtle.end_fill()
     turtle.left(30)
+    turtle.up()
 
 
 # Формула стороны шестиугольника
