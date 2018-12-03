@@ -19,9 +19,11 @@ def get_num_hexagons():
     num_of_hexagons=int(input('введите кол-во'))
     if 3 < num_of_hexagons < 21:
         return num_of_hexagons
+    else:
+        return get_num_hexagons()
 
 def draw(color1, color2, count):
-    """Рисование всех шестиугольников"""
+    """Drawing all hexagons"""
     side_len = float(sqrt(4 * (500 / (2 * count)) ** 2 / 3))
     speed(0)
     y = 250
@@ -53,10 +55,18 @@ def get_color_choice():
     for c in list_of_colors:
         print('', c)
     colors_codes = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink']
-    color = str(input('введите цвет йоу:')).lower()
+    color = str(input('введите цвет йоу:'))
+    color_re = color.lower()
+    color_rem = color_re.replace('ё','е')
     for i in range(7):
-        if color == list_of_colors[i]:
+        if color_rem == list_of_colors[i]:
             return colors_codes[i]
+    while True:
+        color = str(input('{} {}'.format(color,'не является верным значением. Пожалуйста, повторите попытку')))
+        for i in range(7):
+            if color_rem == list_of_colors[i]:
+                return colors_codes[i]
+
 def main():
     count = get_num_hexagons()
     color_1 = get_color_choice()
