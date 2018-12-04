@@ -1,10 +1,13 @@
 """Case-study #5 Tesselation
 Developers:
-Selishchev A. 35%, Paymushkin K.35%, Krivosheenkova E.30%"""
+Selishchev A., Paymushkin K., Krivosheenkova E.
+"""
 
 from turtle import *
 from math import *
 import ru_local
+
+
 def draw_hexagon(x, y, side_len, color):
     """Drawing a hexagon"""
     count = 0
@@ -20,6 +23,8 @@ def draw_hexagon(x, y, side_len, color):
     end_fill()
     left(30)
     up()
+    
+    
 def get_num_hexagons():
     num_of_hexagons=int(input('{}'.format(ru_local.HEX)))
     if 3 < num_of_hexagons < 21:
@@ -27,6 +32,7 @@ def get_num_hexagons():
     else:
         return get_num_hexagons()
 
+    
 def draw(color1, color2, count):
     """Drawing all hexagons"""
     side_len = float(sqrt(4 * (500 / (2 * count)) ** 2 / 3))
@@ -54,6 +60,7 @@ def draw(color1, color2, count):
         line += 1
     done()
 
+    
 def get_color_choice():
     list_of_colors = ['{}'.format(ru_local.RED), '{}'.format(ru_local.BLUE),
                       '{}'.format(ru_local.GREEN), '{}'.format(ru_local.YELLOW),
@@ -75,6 +82,7 @@ def get_color_choice():
             if color_rem == list_of_colors[i]:
                 return colors_codes[i]
 
+            
 def main():
     count = get_num_hexagons()
     color_1 = get_color_choice()
@@ -85,3 +93,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
